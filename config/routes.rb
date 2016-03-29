@@ -5,8 +5,3 @@ GmailAlerts::Application.routes.draw do
   get "/auth/:provider/callback" => 'sessions#create'
 
 end
-
-
-Rails.application.routes.draw do
-  match "/sessions/index" => "sessions#index", :via => [:get, :post]
-end

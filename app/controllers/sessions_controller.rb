@@ -11,8 +11,4 @@ class SessionsController < ApplicationController
 			refresh_token: @auth['refresh_token'],
 			expires_at: Time.at(@auth['expires_at']).to_datetime)
 	end
-
-	def index
-		@token = Token.first
-	end
 end
