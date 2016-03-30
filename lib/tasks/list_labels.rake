@@ -6,7 +6,7 @@ task :list_labels => :environment do
 	client.authorization.access_token = Token.last.fresh_token
 	service = client.discovered_api('gmail')
 
-	result = cleint.execute(
+	result = client.execute(
 		api_method: service.users.labels.list,
 		parameters: {'userId' => 'me'})
 
