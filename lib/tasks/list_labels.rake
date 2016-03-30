@@ -8,7 +8,7 @@ task :list_labels => :environment do
 
 	result = cleint.execute(
 		api_method: service.users.labels.list,
-		:parameters: {'userId' => 'me'})
+		parameters: {'userId' => 'me'})
 
 	pp.JSON.parse(result.body)
 
