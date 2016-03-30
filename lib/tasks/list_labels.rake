@@ -4,9 +4,10 @@ task :list_labels => :environment do
 
 	client = Google::APIClient.new
 
-	key = Google::APIClient::KeyUtils.load_from_pkcs12(key_file, key_secret)
+	# key = Google::APIClient::KeyUtils.load_from_pkcs12(Rails.application.secrets.client_id, Rails.application.secrets.client_secret)
 
-	client.authorization.access_token = Token.last.fresh_token
+	# client.authorization.access_token = Token.last.fresh_token
+	client.authorization.access_token = Token.last.refresh_token
 	service = client.discovered_api('gmail')
 
 	result = client.execute(
